@@ -1,5 +1,7 @@
 package com.udacity.EntityExec.data;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.udacity.EntityExec.DTO.Views;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
@@ -20,9 +22,11 @@ public class Plant {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JsonView(Views.Public.class)
     @Nationalized // should use @Nationalized(some foreign language, UNICODE) instead of @Type=nstring
     private String name;
 
+    @JsonView(Views.Public.class)
     @Column(precision = 12, scale = 4)
     private BigDecimal price; // BigDecimal is the standard Java class for currency math
 

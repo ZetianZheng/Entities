@@ -41,3 +41,30 @@ Add and update getter and setter methods.
   - @OneToMany
   - Lazy loading: [Eager/Lazy Loading In Hibernate | Baeldung](https://www.baeldung.com/hibernate-lazy-eager-loading)
 
+## DTO
+[从实践中理解JsonView的作用和用法 - SegmentFault 思否](https://segmentfault.com/a/1190000023286635)  
+
+We want to make a REST endpoint that allows users to retrieve the price for a plant with a specific name, but we don’t want to show them ids or any information about the Delivery that plant is scheduled for. For this assignment, we’ll solve the problem twice: once using a DTO and once using the @JSONView annotation.  
+
+CreatePlantService.java and PlantController.java using the above code.
+
+
+Create a class called PlantDTO that contains name and price variables.
+
+
+Modify the PlantController class to convert the Plant Entity into a PlantDTO and return that from the getPlantDTO method.
+
+
+Create a new class called Views. Create an interface in that class called Public.
+
+
+Use the @JSONView annotation in Plant.java and PlantController.java so that getFilteredPlant only returns name and price.
+- [PlantController](src/main/java/com/udacity/EntityExec/controller/PlantController.java)
+  - convertPlantToDTO : copyProperties
+  -  @JsonView(Views.Public.class)
+- [PlantService](src/main/java/com/udacity/EntityExec/service/PlantService.java)
+  - @Service
+  ### DTO part:
+- [Views](src/main/java/com/udacity/EntityExec/DTO/Views.java)
+  - public interface Public { }
+- [PlantDTO](src/main/java/com/udacity/EntityExec/DTO/PlantDTO.java)
