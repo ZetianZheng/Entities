@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Delivery {
@@ -23,6 +24,20 @@ public class Delivery {
     @Type(type = "yes_no")
     private Boolean completed;
 
+    // make sure to specify mappedBy. Lazy fetch optional,
+    //  but often a good idea for collection attributes
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery")
+    private List<Plant> plants;
+
+    /**
+     * do we need constructor for not primary-key-class entity?
+     * @param id
+     * @param name
+     * @param address
+     * @param deliveryDate
+     * @param deliveryTime
+     * @param completed
+     */
     public Delivery(Long id, String name, String address, String deliveryDate, LocalDateTime deliveryTime, Boolean completed) {
         this.id = id;
         this.name = name;
@@ -44,6 +59,15 @@ public class Delivery {
     }
 
     /* getters and setters */
+
+    public List<Plant> getPlants() {
+        return plants;
+    }
+
+    public void setPlants(List<Plant> plants) {
+        this.plants = plants;
+    }
+
     public Long getId() {
         return id;
     }
