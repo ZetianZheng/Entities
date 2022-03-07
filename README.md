@@ -68,3 +68,15 @@ Use the @JSONView annotation in Plant.java and PlantController.java so that getF
 - [Views](src/main/java/com/udacity/EntityExec/DTO/Views.java)
   - public interface Public { }
 - [PlantDTO](src/main/java/com/udacity/EntityExec/DTO/PlantDTO.java)
+
+## JPA Exercise 1
+For this exercise, you should create a class that can add new Delivery objects to the database. It should support the following interface:
+[DeliveryRepository](src/main/java/com/udacity/EntityExec/repository/DeliveryRepository.java)
+```java
+void persist(Delivery delivery);
+Delivery find(Long id);
+Delivery merge(Delivery delivery);
+void delete(Long id);
+```
+Modify Delivery [delivery](src/main/java/com/udacity/EntityExec/data/Delivery.java) so that if it is removed, it will also remove any Plants associated with it at the same time.
+Modify Plant [Plant](src/main/java/com/udacity/EntityExec/data/Plant.java) so that it will only query for Delivery objects when they are referenced, not every time the Plant is retrieved.

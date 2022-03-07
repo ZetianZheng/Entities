@@ -25,8 +25,11 @@ public class Delivery {
     private Boolean completed;
 
     // make sure to specify mappedBy. Lazy fetch optional,
-    //  but often a good idea for collection attributes
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery")
+    // but often a good idea for collection attributes
+    //
+    // if it is removed, it will also remove any Plants associated with it at the same time:
+    // added CascadeType.REMOVE to automatically clear any associated plants when removed
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery", cascade = CascadeType.REMOVE)
     private List<Plant> plants;
 
     /**
