@@ -80,3 +80,44 @@ void delete(Long id);
 ```
 Modify Delivery [delivery](src/main/java/com/udacity/EntityExec/data/Delivery.java) so that if it is removed, it will also remove any Plants associated with it at the same time.
 Modify Plant [Plant](src/main/java/com/udacity/EntityExec/data/Plant.java) so that it will only query for Delivery objects when they are referenced, not every time the Plant is retrieved.
+
+## JPA Exercise 2
+
+Create the [DeliveryService](src/main/java/com/udacity/EntityExec/service/DeliveryService.java) and [DeliveryController](src/main/java/com/udacity/EntityExec/controller/DeliveryController.java) classes provided above
+
+
+Use Postman to send the provided JSON to the /delivery endpoint and verify you get an id back (probably 1)
+
+
+Create a @NamedQuery that returns all Deliveries for a specified Name. Place it in the appropriate Entity.  
+- [Delivery](src/main/java/com/udacity/EntityExec/data/Delivery.java)
+
+
+Create a method in DeliveryRepository that accepts a String name and returns a List of Delivery Entities using your @NamedQuery.
+- [DeliveryRepository](src/main/java/com/udacity/EntityExec/repository/DeliveryRepository.java)
+
+Create a data class called RecipientAndPrice that contains a String name and BigDecimal price.
+- [RecipientAndPrice](src/main/java/com/udacity/EntityExec/DTO/RecipientAndPrice.java)
+
+
+Create a method in DeliveryRepository that accepts a Long deliveryId and uses CriteriaBuilder 
+to populate an instance of RecipientAndPrice that contains the recipient name 
+for the provided deliveryId and the total price of all the plants in the order.
+- [DeliveryRepository](src/main/java/com/udacity/EntityExec/repository/DeliveryRepository.java)
+
+## JPA Exercise 3
+
+Create a PlantRepository interface that extends JpaRepository.
+
+
+Add one (or more!) methods that can return a Boolean indicating whether a specified plant id has been delivered.
+
+
+Add a method that returns all plants cheaper than a specified price.
+
+
+Create service methods to:
+
+Save a plant
+Check if a plant has been delivered
+Find a list of plants cheaper than a specified price

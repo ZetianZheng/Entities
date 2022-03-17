@@ -8,6 +8,12 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+@org.hibernate.annotations.NamedQueries({
+        @org.hibernate.annotations.NamedQuery(
+                name = "Delivery.findAllByName",
+                query = "select d from Delivery d where d.name = :name"
+        )
+})
 @Entity
 public class Delivery {
     @Id
@@ -29,7 +35,7 @@ public class Delivery {
     //
     // if it is removed, it will also remove any Plants associated with it at the same time:
     // added CascadeType.REMOVE to automatically clear any associated plants when removed
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery", cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery", cascade = CascadeType.ALL)
     private List<Plant> plants;
 
     /**
