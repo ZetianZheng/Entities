@@ -132,24 +132,26 @@ Create service methods to:
 ## DataSource:
 ### DataSource Exercise 2:
 
-Create a new class annotated with @Configuration
+Create a new class annotated with @Configuration: [DataSourceConfig](src/main/java/com/udacity/EntityExec/config/DataSourceConfig.java)
 
 
 Add a @Bean method that returns a DataSource
 
 
-Add a new property to your application.properties file that stores the url for your datasource
+Add a new property to your [application.properties](src/main/resources/application.properties) file that stores the url for your datasource
 
 
 Update the method to retrieve the url from the properties file
-
+```java
+ @ConfigurationProperties(prefix = "com.udacity.datasource")
+ ```
 
 Programmatically set the user and password on the datasource object
-
+[application.properties](src/main/resources/application.properties)
 
 Run your application to make sure you can still connect
 
-### DataSource Exercise 3
+### DataSource Exercise 3 hibernate init
 [注解@ConfigurationProperties使用方法 - 健人雄 - 博客园](https://www.cnblogs.com/tian874540961/p/12146467.html)
 
 Update [application.properties](src/main/resources/application.properties) to always initialize your datasource and tell hibernate to create tables
