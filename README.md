@@ -113,7 +113,7 @@ Create a PlantRepository interface that extends JpaRepository.
 
 
 Add one (or more!) methods that can return a Boolean indicating whether a specified plant id has been delivered.
-- [(61条消息) Spring data jpa 复杂动态查询方式总结_缄默的果壳的博客-CSDN博客_jpa复杂查询](https://blog.csdn.net/qq_30054997/article/details/79420141)
+- [Spring data jpa 复杂动态查询方式总结_缄默的果壳的博客-CSDN博客_jpa复杂查询](https://blog.csdn.net/qq_30054997/article/details/79420141)
 - [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
   - Supported keywords inside method names(and, or, between...)
 
@@ -164,3 +164,23 @@ Run your application
 
 
 Verify the tables were created for Plant and Delivery Entities
+
+### Data Sources Exercise 4 Unit Test data sources 
+Create a new test class or modify the default test class included from Spring Initializr
+
+
+Add the @DataJpaTest annotation
+
+
+Inject a TestEntityManager
+
+
+Create a testPriceLessThan method that validates your PlantRepository.findByPriceLessThan method
+
+
+Create a testDeliveryCompleted method that validates your PlantRepository.deliveryCompleted method
+
+
+Run the tests to make sure they pass!
+
+[JPA - EntityManager详解_流烟默的博客-CSDN博客](https://blog.csdn.net/J080624/article/details/78751411#:~:text=%E3%80%901%E3%80%91EntityManager%E4%BB%8B%E7%BB%8D,O%2FR%20%E6%98%A0%E5%B0%84%E7%9A%84%E7%AE%A1%E7%90%86%E3%80%82)

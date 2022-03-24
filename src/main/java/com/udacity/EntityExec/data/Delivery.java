@@ -28,7 +28,7 @@ public class Delivery {
     private String deliveryDate;
     private LocalDateTime deliveryTime;// includes both date and time - simpler than having two separate fields
     @Type(type = "yes_no")
-    private Boolean completed;
+    private Boolean completed=false;
 
     // make sure to specify mappedBy. Lazy fetch optional,
     // but often a good idea for collection attributes
@@ -67,6 +67,11 @@ public class Delivery {
         this.completed = completed;
     }
 
+    public Delivery(String name, String address, LocalDateTime deliveryTime) {
+        this.name = name;
+        this.address = address;
+        this.deliveryTime = deliveryTime;
+    }
     /* getters and setters */
 
     public List<Plant> getPlants() {
