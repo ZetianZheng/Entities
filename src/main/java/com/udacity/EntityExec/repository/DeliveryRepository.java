@@ -48,7 +48,7 @@ public class DeliveryRepository {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<RecipientAndPrice> query = cb.createQuery(RecipientAndPrice.class);
         Root<Plant> root = query.from(Plant.class);
-
+        // TODO: how to projection with CriteriaBuilder?
         query.select(
                 cb.construct(
                         RecipientAndPrice.class,

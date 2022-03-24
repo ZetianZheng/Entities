@@ -7,8 +7,10 @@ import com.udacity.EntityExec.data.Plant;
 import com.udacity.EntityExec.service.PlantService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/plant")
@@ -16,6 +18,11 @@ public class PlantController {
 
     @Autowired
     private PlantService plantService;
+
+    @PostMapping
+    public Long savePlant(@RequestBody Plant plant) {
+        return plantService.savePlant(plant);
+    }
 
     public PlantDTO getPlantDTO(String name){
         Plant plant = plantService.getPlantByName(name);
@@ -39,5 +46,16 @@ public class PlantController {
         PlantDTO plantDTO = new PlantDTO();
         BeanUtils.copyProperties(plant, plantDTO);
         return plantDTO;
+    }
+
+    @GetMapping("/delivered/{id}")
+    public Boolean delivered(@PathVariable Long id) {
+        return plantService.isDelivered(id);
+    }
+
+    @GetMapping("/under-price/{price}")
+    @JsonView(Views.Public.class)
+    public List<Plant> plantsCheaperThan(@PathVariable BigDecimal price) {
+        return plantService.findPlantsBelowPrice(price);
     }
 }

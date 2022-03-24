@@ -61,7 +61,8 @@ Create a new class called Views. Create an interface in that class called Public
 Use the @JSONView annotation in Plant.java and PlantController.java so that getFilteredPlant only returns name and price.
 - [PlantController](src/main/java/com/udacity/EntityExec/controller/PlantController.java)
   - convertPlantToDTO : copyProperties
-  -  @JsonView(Views.Public.class)
+  -  @JsonView(Views.Public.class) 
+      - [从实践中理解JsonView的作用和用法 - SegmentFault 思否](https://segmentfault.com/a/1190000023286635)
 - [PlantService](src/main/java/com/udacity/EntityExec/service/PlantService.java)
   - @Service
   ### DTO part:
@@ -104,6 +105,7 @@ Create a method in DeliveryRepository that accepts a Long deliveryId and uses Cr
 to populate an instance of RecipientAndPrice that contains the recipient name 
 for the provided deliveryId and the total price of all the plants in the order.
 - [DeliveryRepository](src/main/java/com/udacity/EntityExec/repository/DeliveryRepository.java)
+  - TODO: how to projection with CriteriaBuilder?
 
 ## JPA Exercise 3
 
@@ -111,13 +113,52 @@ Create a PlantRepository interface that extends JpaRepository.
 
 
 Add one (or more!) methods that can return a Boolean indicating whether a specified plant id has been delivered.
-
+- [(61条消息) Spring data jpa 复杂动态查询方式总结_缄默的果壳的博客-CSDN博客_jpa复杂查询](https://blog.csdn.net/qq_30054997/article/details/79420141)
+- [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
+  - Supported keywords inside method names(and, or, between...)
 
 Add a method that returns all plants cheaper than a specified price.
 
 
 Create service methods to:
 
-Save a plant
-Check if a plant has been delivered
-Find a list of plants cheaper than a specified price
+- Save a plant
+- Check if a plant has been delivered
+- Find a list of plants cheaper than a specified price
+
+### Flushing and transaction:
+- TODO: transaction boundaries
+
+## DataSource:
+### DataSource Exercise 2:
+
+Create a new class annotated with @Configuration
+
+
+Add a @Bean method that returns a DataSource
+
+
+Add a new property to your application.properties file that stores the url for your datasource
+
+
+Update the method to retrieve the url from the properties file
+
+
+Programmatically set the user and password on the datasource object
+
+
+Run your application to make sure you can still connect
+
+### DataSource Exercise 3
+[注解@ConfigurationProperties使用方法 - 健人雄 - 博客园](https://www.cnblogs.com/tian874540961/p/12146467.html)
+
+Update [application.properties](src/main/resources/application.properties) to always initialize your datasource and tell hibernate to create tables
+
+
+Set the properties to show formatted SQL output
+
+
+Run your application
+
+
+Verify the tables were created for Plant and Delivery Entities

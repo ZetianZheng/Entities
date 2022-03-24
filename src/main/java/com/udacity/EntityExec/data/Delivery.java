@@ -117,11 +117,18 @@ public class Delivery {
         this.deliveryTime = deliveryTime;
     }
 
+    // set the default value to completed: false;
     public Boolean getCompleted() {
+        if (completed == null) {
+            return false;
+        }
         return completed;
     }
 
     public void setCompleted(Boolean completed) {
+        if (completed == null) {
+            return;
+        }
         this.completed = completed;
     }
 }
