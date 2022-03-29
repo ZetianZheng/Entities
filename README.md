@@ -167,7 +167,7 @@ Verify the tables were created for Plant and Delivery Entities
 
 ### Data Sources Exercise 4 Unit Test data sources 
 Create a new test class or modify the default test class included from Spring Initializr
-
+[ExercisesApplicationTests](src/test/java/com/udacity/EntityExec/ExercisesApplicationTests.java)
 
 Add the @DataJpaTest annotation
 
