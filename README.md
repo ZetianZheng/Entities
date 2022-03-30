@@ -184,3 +184,6 @@ Create a testDeliveryCompleted method that validates your PlantRepository.delive
 Run the tests to make sure they pass!
 
 [JPA - EntityManager详解_流烟默的博客-CSDN博客](https://blog.csdn.net/J080624/article/details/78751411#:~:text=%E3%80%901%E3%80%91EntityManager%E4%BB%8B%E7%BB%8D,O%2FR%20%E6%98%A0%E5%B0%84%E7%9A%84%E7%AE%A1%E7%90%86%E3%80%82)
+
+## Lesson 5: Persistence Without JPA
+### Exercise 1
