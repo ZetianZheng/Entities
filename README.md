@@ -186,4 +186,22 @@ Run the tests to make sure they pass!
 [JPA - EntityManager详解_流烟默的博客-CSDN博客](https://blog.csdn.net/J080624/article/details/78751411#:~:text=%E3%80%901%E3%80%91EntityManager%E4%BB%8B%E7%BB%8D,O%2FR%20%E6%98%A0%E5%B0%84%E7%9A%84%E7%AE%A1%E7%90%86%E3%80%82)
 
 ## Lesson 5: Persistence Without JPA
-### Exercise 1
+### Exercise 1 init database table
+Create a [schema-candy.sql](src/main/resources/schema-candy.sql) file that creates the ‘candy’ table
+
+Create a [data-candy.sql](src/main/resources/data-candy.sql) file that populates your ‘candy’ table with a few items
+
+
+Launch your application and verify the table was created and populated
+
+
+Stop the application and launch it again, to make sure your sql produces no errors when the table and data already exist. Check to make sure there are no duplicate entries in your candy table.
+
+### E2 Design DAO
+Create a new table to store a many-to-many mapping of candy to deliveries. You should put the create statement in your [schema-candy.sql](src/main/resources/schema-candy.sql).
+
+
+Create a [CandyData](src/main/java/com/udacity/EntityExec/data/Candy.java) class that maps to the candy table.
+
+
+Create a [CandyDAO](src/main/java/com/udacity/EntityExec/DAO/CandyDAO.java) that defines methods for retrieving the available candy, adding candy to deliveries and getting a list of candy on a delivery.

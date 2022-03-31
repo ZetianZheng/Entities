@@ -10,5 +10,5 @@ insert ignore into candy
 
 insert ignore into candy
     set id = 3,
-        name = 'Koalas march'
+        name = 'Koalas march',
         price = '5';
