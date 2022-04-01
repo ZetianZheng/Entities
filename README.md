@@ -205,3 +205,21 @@ Create a [CandyData](src/main/java/com/udacity/EntityExec/data/Candy.java) class
 
 
 Create a [CandyDAO](src/main/java/com/udacity/EntityExec/DAO/CandyDAO.java) that defines methods for retrieving the available candy, adding candy to deliveries and getting a list of candy on a delivery.
+
+### candy_delivery 多对多关系
+[schema-candy.sql](src/main/resources/schema-candy.sql)
+[外键 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1177760294764384/1218728424164736)  
+[Using the ON DELETE CASCADE Option - IBM Documentation](https://www.ibm.com/docs/en/informix-servers/14.10?topic=clause-using-delete-cascade-option)
+
+### E3 DAO implement
+
+Create a new class called [CandyDAOImpl](src/main/java/com/udacity/EntityExec/DAO/CandyDAOImpl.java) that implements CandyDAO
+
+
+Inject a NamedParameterJdbcTemplate instance
+
+
+Implement the three methods in CandyDAO
+
+
+Add @Repository and @Transactional annotations

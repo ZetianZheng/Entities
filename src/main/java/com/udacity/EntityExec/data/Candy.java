@@ -20,16 +20,13 @@ public class Candy {
     private List<Delivery> deliveries;
 
     // setter and getter
-    public Candy(Long id, BigDecimal price, List<Delivery> deliveries) {
+    public Candy(Long id, String name, BigDecimal price, List<Delivery> deliveries) {
         this.id = id;
+        this.name = name;
         this.price = price;
         this.deliveries = deliveries;
     }
 
-    public Candy(BigDecimal price, List<Delivery> deliveries) {
-        this.price = price;
-        this.deliveries = deliveries;
-    }
 
     public Candy() {
     }
