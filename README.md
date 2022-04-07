@@ -223,3 +223,8 @@ Implement the three methods in CandyDAO
 
 
 Add @Repository and @Transactional annotations
+
+# Others:
+## join column and mappedby:
+[hibernate基于注解的维护权反转：@OneToMany(mappedBy=) - bojiangzhou - 博客园](https://www.cnblogs.com/chiangchou/p/mappedby.html)
+[Difference Between @JoinColumn and mappedBy | Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)

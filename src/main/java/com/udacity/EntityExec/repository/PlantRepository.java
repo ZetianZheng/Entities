@@ -13,7 +13,7 @@ public interface PlantRepository extends JpaRepository<Plant,Long> {
     //you can reference associations and attributes by chaining: Delivery.Completed
     //you can use Operators like And/Or, Lessthan/greaterthan, null/notnull
     // TODO: exists? I didn't see any key words "Exists" in [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation),
-    //  how this work? can we try isNotNull?
+    // How this work? can we try isNotNull?
     Boolean existsPlantByIdAndDeliveryCompleted(Long id, Boolean completed);
 
     @Query("select p.delivery.completed from Plant p where p.id = :id")
